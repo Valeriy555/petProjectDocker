@@ -1,11 +1,11 @@
 db.createUser(
     {
-        user: 'valera',
-        pwd: 'valera1982',
+        user: 'user',
+        pwd: 'user',
         roles: [
             {
                 role: 'readWrite',
-                db: 'petProjectDocker'
+                db: 'Docker'
             }
         ]
     }

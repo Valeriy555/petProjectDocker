@@ -7,4 +7,4 @@ WORKDIR /app
 
 COPY ./backend/package.json /app
 
-RUN npm i --prodaction
+RUN npm i --production

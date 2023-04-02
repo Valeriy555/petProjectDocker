@@ -1,4 +1,6 @@
 .idea
+mongo_db
 backend/node_modules
 package-lock.json
 .env
+db.env

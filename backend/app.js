@@ -1,7 +1,10 @@
 const express = require("express");
 const mongoose = require("mongoose");
+
 mongoose.set('strictQuery', false);
+
 const {User} = require("./dataBase");
+const {HOST, PORT, MONGO_URI} = require("./configs/configs");
 
 const app = express();
 
@@ -24,7 +27,7 @@ const connection = async ()=>{
     while (!dbCon) {
         try {
             console.log('Connecting to database...')
-            await mongoose.connect(process.env.MONGO_URI || 'mongodb://127.0.0.1/Docker')
+            await mongoose.connect(MONGO_URI)
             dbCon = true
             console.log('Database available!!!')
         } catch (e) {
@@ -37,12 +40,23 @@ const connection = async ()=>{
 const start = async () => {
     try {
         await connection()
-        await app.listen(+process.env.PORT || 5000, process.env.HOST)
-        console.log(`Server listening on ${process.env.PORT} port`)
+        await app.listen(+PORT,HOST)
+        console.log(`Server listening on ${PORT} port`)
     } catch (e) {
         console.log(e);
 
     }
 }
-
 start()
+
+// const start = async () => {
+//     try {
+//         await mongoose.connect('mongodb://0.0.0.0:27017/users')
+//         await app.listen(5003,HOST)
+//         console.log(`Server listening on 5003 port`)
+//     } catch (e) {
+//         console.log(e);
+//
+//     }
+// }
+// start()
