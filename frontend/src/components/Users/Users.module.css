@@ -1,0 +1,11 @@
+.Users {
+    background: silver;
+    border: 1px solid brown;
+    margin-left: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 98%;
+
+
+}
